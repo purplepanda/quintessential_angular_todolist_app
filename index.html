@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
+    <!-- css -->
+    <link href="styles/styles.css" rel="stylesheet" type="text/css" />
+
+    <!-- angular src -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <title>To Do List</title>
+</head>
+
+<body ng-app="todoApp">
+  <!-- Begin Main Content -->
+  <!-- Headline -->
+    <h1>To Do List</h1>
+  <!-- Section to input To Do List Items -->
+    <div ng-controller="listCtrl" id="main">
+
+        <input type="text" ng-model="chore" name="name" value="" placeholder="create new task" required />
+        <button type="button" ng-click="addChore()" name="button">Add to List!</button>
+
+  <!-- Begin To Do List / Editing To Do List Content Section -->
+        <ul>
+            <li ng-repeat="toDo in toDos | filter:filterList">{{toDo | uppercase}}
+                <!-- <span>{{$index }}</span> -->
+                <div id="actions">
+                    <a href="" class="finished" ng-click="moveToFinished($index)">finished!</a>
+                    <a href="" class="edit" ng-show="!showEditBar" ng-click="showEditBar = !showEditBar">edit</a>
+                    <a href="" class="save" ng-show="showEditBar" ng-click="showEditBar = !showEditBar">save</a>
+                    <a href="" class="delete" ng-click="removeChore($index)">delete</a>
+                    <input type="text" ng-model="toDo" ng-show="showEditBar" />
+                </div>
+            </li>
+
+        </ul>
+  <!-- End To Do List Section-->
+  <!-- Begin Search Area -->
+        <input type="text" ng-model="filterList" name="name" value="" placeholder="search">
+  <!-- End Search Area -->
+  <!-- Begin Finished List -->
+
+      <div id="finished">
+        <ul>
+            <li class="done" ng-repeat="toDo in finished">{{toDo | uppercase}}</li>
+        </ul>
+      </div>
+    </div>
+  <!-- End Finished List -->
+</body>
+</html>

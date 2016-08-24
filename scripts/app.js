@@ -43,7 +43,8 @@ app.controller("listCtrl", function($scope) {
     $scope.removeChore(index); //removeChore fires; do this last or else the index number doesn't update
   }
 
-  // FIGURE OUT HOW TO PRESS ENTER WHILE FOCUSING AN INPUT
-  //look into ng-blur
+  if ($scope.finished === true) {
+
+  };
 
 });

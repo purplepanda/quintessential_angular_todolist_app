@@ -8,8 +8,8 @@
   padding-top: 10px;
 }
 #main {
-  border: 1px dashed #343C3D;
   padding: 25px;
+  background-color: #f1f1f1;
 }
 h1 {
   font-size: 2em;

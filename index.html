@@ -21,8 +21,10 @@
   <!-- Section to input To Do List Items -->
     <div ng-controller="listCtrl" id="main">
 
+      <form ng-submit="addChore()">
         <input type="text" ng-model="chore" name="name" value="" placeholder="create new task" required />
         <button type="button" ng-click="addChore()" name="button">Add to List!</button>
+      </form>
 
   <!-- Begin To Do List / Editing To Do List Content Section -->
         <ul>
